@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "pythnet-rpc.fullname" . }}
+  labels:
+    {{- include "pythnet-rpc.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.httpRpcPort }}
+      name: http-rpc
+      targetPort: http-rpc
+      protocol: TCP
+    - port: {{ .Values.service.wsRpcPort }}
+      name: ws-rpc
+      targetPort: ws-rpc
+      protocol: TCP
+    - port: {{ .Values.service.gossipPort }}
+      name: gossip-tcp
+      targetPort: gossip-tcp
+      protocol: TCP
+    - port: {{ .Values.service.gossipPort }}
+      name: gossip-udp
+      targetPort: gossip-udp
+      protocol: UDP
+  selector:
+    {{- include "pythnet-rpc.selectorLabels" . | nindent 4 }}
