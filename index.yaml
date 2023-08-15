@@ -13,6 +13,16 @@ entries:
     version: 0.1.0
   pythnet-rpc:
   - apiVersion: v2
+    appVersion: v1.13.6-20220607
+    created: "2023-08-15T15:32:50.082874463Z"
+    description: Pythnet Network RPC
+    digest: fc4067ee18a3a7e868bb5713dbcd33f5fc96f7b482d7076c28df3bc91868a221
+    name: pythnet-rpc
+    type: application
+    urls:
+    - https://github.com/pyth-network/charts/releases/download/pythnet-rpc-0.1.1/pythnet-rpc-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: v1.13.6
     created: "2023-08-15T08:02:00.60466365Z"
     description: Pythnet Network RPC
@@ -22,4 +32,4 @@ entries:
     urls:
     - https://github.com/pyth-network/charts/releases/download/pythnet-rpc-0.1.0/pythnet-rpc-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-15T08:02:00.60487385Z"
+generated: "2023-08-15T15:32:50.082881163Z"
