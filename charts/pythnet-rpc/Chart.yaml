@@ -2,5 +2,5 @@ apiVersion: v2
 name: pythnet-rpc
 description: Pythnet Network RPC
 type: application
-version: 0.1.0
-appVersion: "v1.13.6"
+version: 0.1.1
+appVersion: "v1.13.6-20220607"
