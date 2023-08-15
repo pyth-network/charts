@@ -22,10 +22,10 @@ pythnet:
 replicaCount: 1
 
 image:
-  repository: 192824654885.dkr.ecr.eu-west-2.amazonaws.com/development
+  repository: public.ecr.aws/pyth-network/hermes 
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "ali-pythnet"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
