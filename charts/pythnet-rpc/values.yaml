@@ -1,13 +1,22 @@
-# Default values for Pythnet mainnet rpc config 
+# Default values for Pythnet mainnet rpc config
 pythnet:
+  # -- Pythnet log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
 
+  # -- When wait-for-supermajority <x>, require the bank at <x> to have this hash
   expectedBankHash: 84ztrmopeEhQMxweSPvohG3Hv6zgqrvd7pRjR4QQWKoD
+  # -- Require the genesis have this hash
   expectedGenesisHash: GLKkBUr6r72nBtGrtBPJLRqtsh8wXZanX4xfnqKnWwKq
+  # -- Require the shred version be this value
   expectedShredVersion: 35891
+  # -- Rendezvous with the cluster at this gossip entrypoint
   entrypoint: entrypoint.pythnet.pyth.network:8001
+
+  # -- Message Buffer program id in the network
   messageBufferPid: 7Vbmv1jt4vyuqBZcpYPpnVhrqVe5e6ZPb6JxDcffRHUM
+  # -- Wormhole program id in the network
   wormholePid: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
+  # -- Wormhole accumulator sequence account address in the network
   accumulatorSequenceAddr: 8MuVR15V86sSELdpW4UYTyx7WTXRARF1Bj7GJHgTJP3K
   # The values below are for Pythtest
   # expectedBankHash: CjcYdoVMN7i84Fzs1QyyUJbmxaVho5k9MokEjMHtX1xz
@@ -22,7 +31,7 @@ pythnet:
 replicaCount: 1
 
 image:
-  repository: public.ecr.aws/pyth-network/hermes 
+  repository: public.ecr.aws/pyth-network/hermes
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -42,7 +51,7 @@ podSecurityContext:
 securityContext:
   capabilities:
     drop:
-    - ALL
+      - ALL
   readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
 
