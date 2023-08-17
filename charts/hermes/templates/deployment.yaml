@@ -32,9 +32,9 @@ spec:
             - hermes
             - run
             - --pythnet-http-endpoint
-            - {{ .Values.hermes.pythnetHttpEndpoint }}
+            - {{ required "hermes.pythnetHttpEndpoint is required" .Values.hermes.pythnetHttpEndpoint }}
             - --pythnet-ws-endpoint
-            - {{ .Values.hermes.pythnetWsEndpoint }}
+            - {{ required "hermes.pythnetWsEndpoint is required" .Values.hermes.pythnetWsEndpoint }}
             - --api-addr
             - 0.0.0.0:8080
             - --wh-bootstrap-addrs

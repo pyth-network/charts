@@ -1,14 +1,18 @@
 # Default values for hermes application config. You should replace
 # the pythnet endpoint values with your own.
 hermes:
+  # -- Hermes log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
-  # Pythnet RPC endpoints. Use Pythtest RPC endpoints if you are running Hermes
-  # Beta network.
-  pythnetHttpEndpoint: "http(s)://you-must-fill-this-out/"
-  pythnetWsEndpoint: "ws(s)://you-must-fill-this-out/"
+  # -- Pythnet Http RPC endpoint. Must be set. Example: http://localhost:8899
+  pythnetHttpEndpoint:
+  # -- Pythnet Websocket RPC endpoint. Must be set. Example: ws://localhost:8900
+  pythnetWsEndpoint:
 
+  # -- Wormhole bootstrap addresses
   whBootstrapAddrs: /dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7
+  # -- Wormhole network id
   whNetworkId: /wormhole/mainnet/2
+  # -- Wormhole contract address
   whContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
 
   # The values below are the values for our Hermes Beta using testnet wormhole
@@ -17,6 +21,7 @@ hermes:
   # whContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
 
 # Default values for hermes production config
+
 replicaCount: 1
 
 image:
@@ -40,10 +45,9 @@ podSecurityContext:
 securityContext:
   capabilities:
     drop:
-    - ALL
+      - ALL
   readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
-
 
 service:
   type: ClusterIP
