@@ -8,6 +8,12 @@ hermes:
   # -- Pythnet Websocket RPC endpoint. Must be set. Example: ws://localhost:8900
   pythnetWsEndpoint:
 
+  benchmarks:
+    # -- Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that.
+    enabled: true
+    # -- Benchmarks endpoint.
+    endpoint: https://benchmarks.pyth.network
+
   # -- Wormhole bootstrap addresses
   whBootstrapAddrs: /dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7
   # -- Wormhole network id

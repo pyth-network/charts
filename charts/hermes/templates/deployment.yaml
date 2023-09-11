@@ -43,6 +43,10 @@ spec:
             - {{ .Values.hermes.whNetworkId }}
             - --wh-contract-addr
             - {{ .Values.hermes.whContractAddr }}
+            {{- if .Values.hermes.benchmarks.enabled }}
+            - --benchmarks-endpoint
+            - {{ .Values.hermes.benchmarks.endpoint }}
+            {{- end }}
           env:
             - name: RUST_LOG
               value: {{ .Values.hermes.logLevel }}

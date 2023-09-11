@@ -1,6 +1,6 @@
 # hermes
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.10](https://img.shields.io/badge/AppVersion-v0.1.10-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.16](https://img.shields.io/badge/AppVersion-v0.1.16-informational?style=flat-square)
 
 Pyth cross-chain server
 
@@ -10,6 +10,8 @@ Pyth cross-chain server
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
+| hermes.benchmarks.enabled | bool | `true` | Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that. |
+| hermes.benchmarks.endpoint | string | `"https://benchmarks.pyth.network"` | Benchmarks endpoint. |
 | hermes.logLevel | string | `"warn"` | Hermes log level. Valid values are: trace, debug, info, warn, error |
 | hermes.pythnetHttpEndpoint | string | `nil` | Pythnet Http RPC endpoint. Must be set. Example: http://localhost:8899 |
 | hermes.pythnetWsEndpoint | string | `nil` | Pythnet Websocket RPC endpoint. Must be set. Example: ws://localhost:8900 |
