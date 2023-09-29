@@ -3,10 +3,10 @@
 hermes:
   # -- Hermes log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
-  # -- Pythnet Http RPC endpoint. Must be set. Example: http://localhost:8899
-  pythnetHttpEndpoint:
-  # -- Pythnet Websocket RPC endpoint. Must be set. Example: ws://localhost:8900
-  pythnetWsEndpoint:
+  # -- Pythnet Http RPC address. Must be set. Example: http://localhost:8899
+  pythnetHttpAddr:
+  # -- Pythnet Websocket RPC address. Must be set. Example: ws://localhost:8900
+  pythnetWsAddr:
 
   benchmarks:
     # -- Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that.
@@ -15,16 +15,16 @@ hermes:
     endpoint: https://benchmarks.pyth.network
 
   # -- Wormhole bootstrap addresses
-  whBootstrapAddrs: /dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC
+  wormholeBootstrapAddrs: /dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC
   # -- Wormhole network id
-  whNetworkId: /wormhole/mainnet/2
+  wromholeNetworkId: /wormhole/mainnet/2
   # -- Wormhole contract address
-  whContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
+  wormholeContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
 
   # The values below are the values for our Hermes Beta using testnet wormhole
-  # whBootstrapAddrs: /dns4/wormhole-testnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWAkB9ynDur1Jtoa97LBUp8RXdhzS5uHgAfdTquJbrbN7i
-  # whNetworkId: /wormhole/testnet/2/1
-  # whContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
+  # wormholeBootstrapAddrs: /dns4/wormhole-testnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWAkB9ynDur1Jtoa97LBUp8RXdhzS5uHgAfdTquJbrbN7i
+  # wormholeNetworkId: /wormhole/testnet/2/1
+  # wormholeContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
 
 # Default values for hermes production config
 
@@ -57,7 +57,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: false

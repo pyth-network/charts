@@ -31,18 +31,18 @@ spec:
           command:
             - hermes
             - run
-            - --pythnet-http-endpoint
-            - {{ required "hermes.pythnetHttpEndpoint is required" .Values.hermes.pythnetHttpEndpoint }}
-            - --pythnet-ws-endpoint
-            - {{ required "hermes.pythnetWsEndpoint is required" .Values.hermes.pythnetWsEndpoint }}
-            - --api-addr
+            - --pythnet-http-addr
+            - {{ required "hermes.pythnetHttpAddr is required" .Values.hermes.pythnetHttpAddr }}
+            - --pythnet-ws-addr
+            - {{ required "hermes.pythnetWsAddr is required" .Values.hermes.pythnetWsAddr }}
+            - --rpc-listen-addr
             - 0.0.0.0:8080
-            - --wh-bootstrap-addrs
-            - {{ .Values.hermes.whBootstrapAddrs }}
-            - --wh-network-id
-            - {{ .Values.hermes.whNetworkId }}
-            - --wh-contract-addr
-            - {{ .Values.hermes.whContractAddr }}
+            - --wormhole-bootstrap-addrs
+            - {{ .Values.hermes.wormholeBootstrapAddrs }}
+            - --wormhole-network-id
+            - {{ .Values.hermes.wormholeNetworkId }}
+            - --wormhole-contract-addr
+            - {{ .Values.hermes.wormholeContractAddr }}
             {{- if .Values.hermes.benchmarks.enabled }}
             - --benchmarks-endpoint
             - {{ .Values.hermes.benchmarks.endpoint }}
