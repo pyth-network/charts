@@ -1,6 +1,6 @@
 # hermes
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.2.0](https://img.shields.io/badge/AppVersion-v0.2.0-informational?style=flat-square)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.2.0](https://img.shields.io/badge/AppVersion-v0.2.0-informational?style=flat-square)
 
 Pyth cross-chain server
 
@@ -17,7 +17,7 @@ Pyth cross-chain server
 | hermes.pythnetWsAddr | string | `nil` | Pythnet Websocket RPC address. Must be set. Example: ws://localhost:8900 |
 | hermes.wormholeBootstrapAddrs | string | `"/dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC"` | Wormhole bootstrap addresses |
 | hermes.wormholeContractAddr | string | `"H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU"` | Wormhole contract address |
-| hermes.wromholeNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
+| hermes.wormholeNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"public.ecr.aws/pyth-network/hermes"` |  |
 | image.tag | string | `""` |  |
