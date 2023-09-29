@@ -1,6 +1,6 @@
 # hermes
 
-![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.20](https://img.shields.io/badge/AppVersion-v0.1.20-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.2.0](https://img.shields.io/badge/AppVersion-v0.2.0-informational?style=flat-square)
 
 Pyth cross-chain server
 
@@ -13,11 +13,11 @@ Pyth cross-chain server
 | hermes.benchmarks.enabled | bool | `true` | Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that. |
 | hermes.benchmarks.endpoint | string | `"https://benchmarks.pyth.network"` | Benchmarks endpoint. |
 | hermes.logLevel | string | `"warn"` | Hermes log level. Valid values are: trace, debug, info, warn, error |
-| hermes.pythnetHttpEndpoint | string | `nil` | Pythnet Http RPC endpoint. Must be set. Example: http://localhost:8899 |
-| hermes.pythnetWsEndpoint | string | `nil` | Pythnet Websocket RPC endpoint. Must be set. Example: ws://localhost:8900 |
-| hermes.whBootstrapAddrs | string | `"/dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC"` | Wormhole bootstrap addresses |
-| hermes.whContractAddr | string | `"H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU"` | Wormhole contract address |
-| hermes.whNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
+| hermes.pythnetHttpAddr | string | `nil` | Pythnet Http RPC address. Must be set. Example: http://localhost:8899 |
+| hermes.pythnetWsAddr | string | `nil` | Pythnet Websocket RPC address. Must be set. Example: ws://localhost:8900 |
+| hermes.wormholeBootstrapAddrs | string | `"/dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC"` | Wormhole bootstrap addresses |
+| hermes.wormholeContractAddr | string | `"H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU"` | Wormhole contract address |
+| hermes.wromholeNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"public.ecr.aws/pyth-network/hermes"` |  |
 | image.tag | string | `""` |  |
@@ -43,7 +43,7 @@ Pyth cross-chain server
 | securityContext.allowPrivilegeEscalation | bool | `false` |  |
 | securityContext.capabilities.drop[0] | string | `"ALL"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `true` |  |
-| service.port | int | `80` |  |
+| service.port | int | `8080` |  |
 | service.type | string | `"ClusterIP"` |  |
 | tolerations | list | `[]` |  |
 
