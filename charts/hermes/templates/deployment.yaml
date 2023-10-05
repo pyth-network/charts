@@ -37,6 +37,10 @@ spec:
             - {{ required "hermes.pythnetWsAddr is required" .Values.hermes.pythnetWsAddr }}
             - --rpc-listen-addr
             - 0.0.0.0:8080
+            {{- if .Values.hermes.rpcWsWhitelist }}
+            - --rpc-ws-whitelist
+            - {{ .Values.hermes.rpcWsWhitelist }}
+            {{- end }}
             - --wormhole-bootstrap-addrs
             - {{ .Values.hermes.wormholeBootstrapAddrs }}
             - --wormhole-network-id
