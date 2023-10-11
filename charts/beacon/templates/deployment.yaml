@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "hermes.fullname" . }}
+  name: {{ include "beacon.fullname" . }}
   labels:
-    {{- include "hermes.labels" . | nindent 4 }}
+    {{- include "beacon.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "hermes.selectorLabels" . | nindent 6 }}
+      {{- include "beacon.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "hermes.selectorLabels" . | nindent 8 }}
+        {{- include "beacon.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -29,49 +29,75 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - hermes
+            - beacon
             - run
             - --pythnet-http-addr
-            - {{ required "hermes.pythnetHttpAddr is required" .Values.hermes.pythnetHttpAddr }}
+            - {{ required "beacon.pythnetHttpAddr is required" .Values.beacon.pythnetHttpAddr }}
             - --pythnet-ws-addr
-            - {{ required "hermes.pythnetWsAddr is required" .Values.hermes.pythnetWsAddr }}
+            - {{ required "beacon.pythnetWsAddr is required" .Values.beacon.pythnetWsAddr }}
             - --rpc-listen-addr
             - 0.0.0.0:8080
-            {{- if .Values.hermes.rpcWsWhitelist }}
+            {{- if .Values.beacon.rpcWsWhitelist }}
             - --rpc-ws-whitelist
-            - {{ .Values.hermes.rpcWsWhitelist }}
+            - {{ .Values.beacon.rpcWsWhitelist }}
             {{- end }}
             - --wormhole-bootstrap-addrs
-            - {{ .Values.hermes.wormholeBootstrapAddrs }}
+            - {{ .Values.beacon.wormholeBootstrapAddrs }}
             - --wormhole-network-id
-            - {{ .Values.hermes.wormholeNetworkId }}
+            - {{ .Values.beacon.wormholeNetworkId }}
             - --wormhole-contract-addr
-            - {{ .Values.hermes.wormholeContractAddr }}
-            {{- if .Values.hermes.benchmarks.enabled }}
+            - {{ .Values.beacon.wormholeContractAddr }}
+            {{- if .Values.beacon.benchmarks.enabled }}
             - --benchmarks-endpoint
-            - {{ .Values.hermes.benchmarks.endpoint }}
+            - {{ .Values.beacon.benchmarks.endpoint }}
             {{- end }}
           env:
-            - name: RUST_LOG
-              value: {{ .Values.hermes.logLevel }}
+            - name: WORMHOLE_LISTEN
+              value: /ip4/0.0.0.0/udp/30910/quic
+            - name: SERVER_URL
+              value: :8080
+            - name: METRICS_URL
+              value: :8081
+            - name: HEARTBEAT_URL
+              value: :9000
+            - name: HEARTBEAT_INTERVAL
+              value: 10
+            - name: LOG_LEVEL
+              value: {{ .Values.beacon.logLevel }}
+            - name: WORMHOLE_NETWORK_ID
+              value: {{ .Values.beacon.wormholeNetworkId }}
+            - name: WORMHOLE_BOOTSTRAP
+              value: {{ .Values.beacon.wormholeBootstrapAddrs }}
+            - name: NATS_URL
+              value: {{ .Values.beacon.natsUrl }}
+            - name: WRITER_BATCH_SIZE
+              value: {{ .Values.beacon.writerBatchSize }}
           ports:
-            - name: http
-              containerPort: 8080
+            - containerPort: 7072
               protocol: TCP
+              name: grpc
+            - containerPort: 8081
+              protocol: TCP
+              name: metrics
+            - containerPort: 9000
+              protocol: TCP
+              name: heartbeat
+            - containerPort: 30910
+              protocol: UDP
+              name: wormhole-listen
           livenessProbe:
             httpGet:
               path: /ready
-              port: 8080
+              port: 9000
             initialDelaySeconds: 30
             periodSeconds: 5
             failureThreshold: 1
-          readinessProbe:
+          livenessProbe:
             httpGet:
-              path: /ready
-              port: 8080
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            failureThreshold: 1
+              path: /
+              port: 9000
+            initialDelaySeconds: 5
+            periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           securityContext:

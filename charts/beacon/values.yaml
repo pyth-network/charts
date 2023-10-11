@@ -1,40 +1,31 @@
-# Default values for hermes application config. You should replace
-# the pythnet endpoint values with your own.
-hermes:
-  # -- Hermes log level. Valid values are: trace, debug, info, warn, error
+# Default values for beacon application config.
+beacon:
+  # -- Beacon log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
-  # -- Pythnet Http RPC address. Must be set. Example: http://localhost:8899
-  pythnetHttpAddr:
-  # -- Pythnet Websocket RPC address. Must be set. Example: ws://localhost:8900
-  pythnetWsAddr:
 
-  benchmarks:
-    # -- Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that.
-    enabled: true
-    # -- Benchmarks endpoint.
-    endpoint: https://benchmarks.pyth.network
+  # -- NATS server URL. Must be set. Example: nats.nats:4222
+  natsUrl:
 
-  # -- Whitelisted ip network addresses (in CIDR notation) against websocket ratelimit (separated by comma). Example: 1.2.0.0/24,3.0.0.0/8
-  rpcWsWhitelist:
+  # -- Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream.
+  writerBatchSize: "1000"
+
+  # -- Wormhole network id
+  wormholeNetworkId: /wormhole/mainnet/2
 
   # -- Wormhole bootstrap addresses
   wormholeBootstrapAddrs: /dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC
-  # -- Wormhole network id
-  wormholeNetworkId: /wormhole/mainnet/2
-  # -- Wormhole contract address
-  wormholeContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
 
-  # The values below are the values for our Hermes Beta using testnet wormhole
-  # wormholeBootstrapAddrs: /dns4/wormhole-testnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWAkB9ynDur1Jtoa97LBUp8RXdhzS5uHgAfdTquJbrbN7i
+  # The values below are the values testnet Wormhole
+  # wormholeBootstrapAddrs: /dns4/wormhole-testnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWAkB9ynDur1Jtoa97LBUp8RXdhzS5uHgAfdTquJbrbN7i,/dns4/t-guardian-01.nodes.stable.io/udp/8999/quic/p2p/12D3KooWCW3LGUtkCVkHZmVSZHzL3C4WRKWfqAiJPz1NR7dT9Bxh,/dns4/t-guardian-02.nodes.stable.io/udp/8999/quic/p2p/12D3KooWJXA6goBCiWM8ucjzc4jVUBSqL9Rri6UpjHbkMPErz5zK
   # wormholeNetworkId: /wormhole/testnet/2/1
-  # wormholeContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
 
-# Default values for hermes production config
+# Default values for beacon production config
 
-replicaCount: 1
+# -- Number of Beacon replicas
+replicaCount: 3
 
 image:
-  repository: public.ecr.aws/pyth-network/hermes
+  repository: public.ecr.aws/pyth-network/beacon
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -60,7 +51,8 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 8080
+  grpcPort: 8080
+  metricsPort: 8081
 
 ingress:
   enabled: false
