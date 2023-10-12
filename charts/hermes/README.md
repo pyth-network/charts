@@ -1,6 +1,6 @@
 # hermes
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.2.1](https://img.shields.io/badge/AppVersion-v0.2.1-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.3.2](https://img.shields.io/badge/AppVersion-v0.3.2-informational?style=flat-square)
 
 Pyth cross-chain server
 
@@ -13,12 +13,11 @@ Pyth cross-chain server
 | hermes.benchmarks.enabled | bool | `true` | Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that. |
 | hermes.benchmarks.endpoint | string | `"https://benchmarks.pyth.network"` | Benchmarks endpoint. |
 | hermes.logLevel | string | `"warn"` | Hermes log level. Valid values are: trace, debug, info, warn, error |
-| hermes.pythnetHttpAddr | string | `nil` | Pythnet Http RPC address. Must be set. Example: http://localhost:8899 |
-| hermes.pythnetWsAddr | string | `nil` | Pythnet Websocket RPC address. Must be set. Example: ws://localhost:8900 |
+| hermes.pythnetHttpAddr | string | `nil` | Pythnet Http RPC address. Must be set. Example: http://1.2.3.4:8899 |
+| hermes.pythnetWsAddr | string | `nil` | Pythnet Websocket RPC address. Must be set. Example: ws://1.2.3.4:8900 |
 | hermes.rpcWsWhitelist | string | `nil` | Whitelisted ip network addresses (in CIDR notation) against websocket ratelimit (separated by comma). Example: 1.2.0.0/24,3.0.0.0/8 |
-| hermes.wormholeBootstrapAddrs | string | `"/dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC"` | Wormhole bootstrap addresses |
 | hermes.wormholeContractAddr | string | `"H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU"` | Wormhole contract address |
-| hermes.wormholeNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
+| hermes.wormholeSpyRpcAddr | string | `nil` | Wormhole spy rpc address. Must be set. Example: http://1.2.3.4:7072 |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"public.ecr.aws/pyth-network/hermes"` |  |
 | image.tag | string | `""` |  |
@@ -37,10 +36,10 @@ Pyth cross-chain server
 | podSecurityContext.runAsGroup | int | `10001` |  |
 | podSecurityContext.runAsNonRoot | bool | `true` |  |
 | podSecurityContext.runAsUser | int | `10001` |  |
-| replicaCount | int | `1` |  |
+| replicaCount | int | `2` |  |
 | resources.limits | object | `{}` |  |
-| resources.requests.cpu | int | `1` |  |
-| resources.requests.memory | string | `"1Gi"` |  |
+| resources.requests.cpu | int | `2` |  |
+| resources.requests.memory | string | `"2Gi"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `false` |  |
 | securityContext.capabilities.drop[0] | string | `"ALL"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `true` |  |
