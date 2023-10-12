@@ -23,7 +23,7 @@ hermes:
   # -- Wormhole contract address
   wormholeContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
 
-  # The values below are the values for our Hermes Beta using testnet wormhole
+  # The values below are the values for Hermes Beta channel using Wormhole testnet network
   # wormholeContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
 
 # Default values for hermes production config
