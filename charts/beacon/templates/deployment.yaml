@@ -66,13 +66,6 @@ spec:
               name: wormhole-listen
           livenessProbe:
             httpGet:
-              path: /ready
-              port: 9000
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            failureThreshold: 1
-          livenessProbe:
-            httpGet:
               path: /
               port: 9000
             initialDelaySeconds: 5
