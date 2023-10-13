@@ -28,29 +28,6 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command:
-            - beacon
-            - run
-            - --pythnet-http-addr
-            - {{ required "beacon.pythnetHttpAddr is required" .Values.beacon.pythnetHttpAddr }}
-            - --pythnet-ws-addr
-            - {{ required "beacon.pythnetWsAddr is required" .Values.beacon.pythnetWsAddr }}
-            - --rpc-listen-addr
-            - 0.0.0.0:8080
-            {{- if .Values.beacon.rpcWsWhitelist }}
-            - --rpc-ws-whitelist
-            - {{ .Values.beacon.rpcWsWhitelist }}
-            {{- end }}
-            - --wormhole-bootstrap-addrs
-            - {{ .Values.beacon.wormholeBootstrapAddrs }}
-            - --wormhole-network-id
-            - {{ .Values.beacon.wormholeNetworkId }}
-            - --wormhole-contract-addr
-            - {{ .Values.beacon.wormholeContractAddr }}
-            {{- if .Values.beacon.benchmarks.enabled }}
-            - --benchmarks-endpoint
-            - {{ .Values.beacon.benchmarks.endpoint }}
-            {{- end }}
           env:
             - name: WORMHOLE_LISTEN
               value: /ip4/0.0.0.0/udp/30910/quic
@@ -61,7 +38,7 @@ spec:
             - name: HEARTBEAT_URL
               value: :9000
             - name: HEARTBEAT_INTERVAL
-              value: 10
+              value: "10"
             - name: LOG_LEVEL
               value: {{ .Values.beacon.logLevel }}
             - name: WORMHOLE_NETWORK_ID
@@ -69,9 +46,11 @@ spec:
             - name: WORMHOLE_BOOTSTRAP
               value: {{ .Values.beacon.wormholeBootstrapAddrs }}
             - name: NATS_URL
-              value: {{ .Values.beacon.natsUrl }}
+              value: {{ required "beacon.natsUrl is required" .Values.beacon.natsUrl }}
+            - name: NATS_STREAM
+              value: {{ required "beacon.natsStream is required" .Values.beacon.natsStream }}
             - name: WRITER_BATCH_SIZE
-              value: {{ .Values.beacon.writerBatchSize }}
+              value: "{{ .Values.beacon.writerBatchSize }}"
           ports:
             - containerPort: 7072
               protocol: TCP

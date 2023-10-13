@@ -10,10 +10,11 @@ Highly available Wormhole RPC
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | beacon.logLevel | string | `"warn"` | Beacon log level. Valid values are: trace, debug, info, warn, error |
-| beacon.natsUrl | string | `nil` | NATS server URL. Must be set. Example: nats.nats:4222 |
+| beacon.natsStream | string | `nil` | NATS stream name. Must be set. Example: mainnet-vaas |
+| beacon.natsUrl | string | `nil` | NATS server URL. Must be set. Example: 1.2.3.4:4222 |
 | beacon.wormholeBootstrapAddrs | string | `"/dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC"` | Wormhole bootstrap addresses |
 | beacon.wormholeNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
-| beacon.writerBatchSize | string | `"1000"` | Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream. |
+| beacon.writerBatchSize | int | `1000` | Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"public.ecr.aws/pyth-network/beacon"` |  |

@@ -3,11 +3,14 @@ beacon:
   # -- Beacon log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
 
-  # -- NATS server URL. Must be set. Example: nats.nats:4222
+  # -- NATS server URL. Must be set. Example: 1.2.3.4:4222
   natsUrl:
 
+  # -- NATS stream name. Must be set. Example: mainnet-vaas
+  natsStream:
+
   # -- Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream.
-  writerBatchSize: "1000"
+  writerBatchSize: 1000
 
   # -- Wormhole network id
   wormholeNetworkId: /wormhole/mainnet/2
