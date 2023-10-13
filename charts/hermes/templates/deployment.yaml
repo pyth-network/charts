@@ -41,10 +41,8 @@ spec:
             - --rpc-ws-whitelist
             - {{ .Values.hermes.rpcWsWhitelist }}
             {{- end }}
-            - --wormhole-bootstrap-addrs
-            - {{ .Values.hermes.wormholeBootstrapAddrs }}
-            - --wormhole-network-id
-            - {{ .Values.hermes.wormholeNetworkId }}
+            - --wormhole-spy-rpc-addr
+            - {{ required "hermes.wormholeSpyRpcAddr is required" .Values.hermes.wormholeSpyRpcAddr }}
             - --wormhole-contract-addr
             - {{ .Values.hermes.wormholeContractAddr }}
             {{- if .Values.hermes.benchmarks.enabled }}

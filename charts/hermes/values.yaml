@@ -3,9 +3,9 @@
 hermes:
   # -- Hermes log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
-  # -- Pythnet Http RPC address. Must be set. Example: http://localhost:8899
+  # -- Pythnet Http RPC address. Must be set. Example: http://1.2.3.4:8899
   pythnetHttpAddr:
-  # -- Pythnet Websocket RPC address. Must be set. Example: ws://localhost:8900
+  # -- Pythnet Websocket RPC address. Must be set. Example: ws://1.2.3.4:8900
   pythnetWsAddr:
 
   benchmarks:
@@ -17,21 +17,18 @@ hermes:
   # -- Whitelisted ip network addresses (in CIDR notation) against websocket ratelimit (separated by comma). Example: 1.2.0.0/24,3.0.0.0/8
   rpcWsWhitelist:
 
-  # -- Wormhole bootstrap addresses
-  wormholeBootstrapAddrs: /dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7,/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC
-  # -- Wormhole network id
-  wormholeNetworkId: /wormhole/mainnet/2
+  # -- Wormhole spy rpc address. Must be set. Example: http://1.2.3.4:7072
+  wormholeSpyRpcAddr:
+
   # -- Wormhole contract address
   wormholeContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
 
-  # The values below are the values for our Hermes Beta using testnet wormhole
-  # wormholeBootstrapAddrs: /dns4/wormhole-testnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWAkB9ynDur1Jtoa97LBUp8RXdhzS5uHgAfdTquJbrbN7i
-  # wormholeNetworkId: /wormhole/testnet/2/1
+  # The values below are the values for Hermes Beta channel using Wormhole testnet network
   # wormholeContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
 
 # Default values for hermes production config
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: public.ecr.aws/pyth-network/hermes
@@ -81,8 +78,8 @@ ingress:
 resources:
   limits: {}
   requests:
-    cpu: 1
-    memory: 1Gi
+    cpu: 2
+    memory: 2Gi
 
 nodeSelector: {}
 
