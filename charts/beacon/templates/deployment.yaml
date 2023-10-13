@@ -52,7 +52,7 @@ spec:
             - name: WRITER_BATCH_SIZE
               value: "{{ .Values.beacon.writerBatchSize }}"
           ports:
-            - containerPort: 7072
+            - containerPort: 8080
               protocol: TCP
               name: grpc
             - containerPort: 8081
