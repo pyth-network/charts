@@ -3,6 +3,16 @@ entries:
   beacon:
   - apiVersion: v2
     appVersion: v0.1.0
+    created: "2023-10-13T14:15:48.866261901Z"
+    description: Highly available Wormhole RPC
+    digest: 31c8b8c3b3e20eacc26df6faa15254b46c756550a988e508b8d9395a3e2d5cb8
+    name: beacon
+    type: application
+    urls:
+    - https://github.com/pyth-network/charts/releases/download/beacon-0.1.1/beacon-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v0.1.0
     created: "2023-10-13T12:41:54.396689392Z"
     description: Highly available Wormhole RPC
     digest: 9fd47c4f25ffdd40db6f70241deecdd7c0caff0720dbf958181ef4ab329bf206
@@ -133,4 +143,4 @@ entries:
     urls:
     - https://github.com/pyth-network/charts/releases/download/pythnet-rpc-0.1.0/pythnet-rpc-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-13T12:58:01.497101004Z"
+generated: "2023-10-13T14:15:48.866286902Z"
