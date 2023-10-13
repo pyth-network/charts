@@ -14,6 +14,16 @@ entries:
   hermes:
   - apiVersion: v2
     appVersion: v0.3.3
+    created: "2023-10-13T12:58:01.497064299Z"
+    description: Pyth cross-chain server
+    digest: 086a1f5c8d2f976e8fda7d953477053b9f79ef71ba46df3b2785b066635a4174
+    name: hermes
+    type: application
+    urls:
+    - https://github.com/pyth-network/charts/releases/download/hermes-0.3.1/hermes-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: v0.3.3
     created: "2023-10-13T12:41:54.612680409Z"
     description: Pyth cross-chain server
     digest: f3ed9e01d36b04f09af861ad28757d10ab204df749243c6ae5e2163e862beb3f
@@ -123,4 +133,4 @@ entries:
     urls:
     - https://github.com/pyth-network/charts/releases/download/pythnet-rpc-0.1.0/pythnet-rpc-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-13T12:41:54.612707911Z"
+generated: "2023-10-13T12:58:01.497101004Z"
