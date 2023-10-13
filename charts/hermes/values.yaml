@@ -17,6 +17,9 @@ hermes:
   # -- Whitelisted ip network addresses (in CIDR notation) against websocket ratelimit (separated by comma). Example: 1.2.0.0/24,3.0.0.0/8
   rpcWsWhitelist:
 
+  # -- Header name to fetch the requester ip address from.
+  rpcRequesterIpHeaderName: X-Forwarded-For
+
   # -- Wormhole spy rpc address. Must be set. Example: http://1.2.3.4:7072
   wormholeSpyRpcAddr:
 

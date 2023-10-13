@@ -41,6 +41,8 @@ spec:
             - --rpc-ws-whitelist
             - {{ .Values.hermes.rpcWsWhitelist }}
             {{- end }}
+            - --rpc-requester-ip-header-name
+            - {{ .Values.hermes.rpcRequesterIpHeaderName }}
             - --wormhole-spy-rpc-addr
             - {{ required "hermes.wormholeSpyRpcAddr is required" .Values.hermes.wormholeSpyRpcAddr }}
             - --wormhole-contract-addr
