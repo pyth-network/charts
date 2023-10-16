@@ -60,7 +60,7 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /ready
+              path: /live
               port: 8080
             initialDelaySeconds: 30
             periodSeconds: 5
