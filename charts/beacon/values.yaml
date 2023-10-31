@@ -9,6 +9,10 @@ beacon:
   # -- NATS stream name. Must be set. Example: mainnet-vaas
   natsStream:
 
+  # -- Heartbeat interval in seconds. The liveness probe will fail if the latency between the VAAs and the current time
+  #    is greater than the heartbeat interval. Must be set.
+  heartbeatInterval: 5
+
   # -- Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream.
   writerBatchSize: 1000
 
