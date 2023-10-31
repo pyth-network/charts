@@ -1,6 +1,6 @@
 # beacon
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.1](https://img.shields.io/badge/AppVersion-v0.1.1-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.2](https://img.shields.io/badge/AppVersion-v0.1.2-informational?style=flat-square)
 
 Highly available Wormhole RPC
 
@@ -9,6 +9,7 @@ Highly available Wormhole RPC
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| beacon.heartbeatInterval | int | `5` | Heartbeat interval in seconds. The liveness probe will fail if the latency between the VAAs and the current time    is greater than the heartbeat interval. Must be set. |
 | beacon.logLevel | string | `"warn"` | Beacon log level. Valid values are: trace, debug, info, warn, error |
 | beacon.natsStream | string | `nil` | NATS stream name. Must be set. Example: mainnet-vaas |
 | beacon.natsUrl | string | `nil` | NATS server URL. Must be set. Example: 1.2.3.4:4222 |
