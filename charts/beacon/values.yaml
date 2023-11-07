@@ -60,6 +60,7 @@ service:
   type: ClusterIP
   grpcPort: 8080
   metricsPort: 8081
+  wormholeListenPort: 8999
 
 ingress:
   enabled: false
