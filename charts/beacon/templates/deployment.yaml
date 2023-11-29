@@ -70,7 +70,7 @@ spec:
               port: 9000
             initialDelaySeconds: 5
             periodSeconds: 3
-          stratupProbe:
+          startupProbe:
             httpGet:
               path: /
               port: 9000
