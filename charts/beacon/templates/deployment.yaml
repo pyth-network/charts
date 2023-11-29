@@ -70,6 +70,13 @@ spec:
               port: 9000
             initialDelaySeconds: 5
             periodSeconds: 3
+          stratupProbe:
+            httpGet:
+              path: /
+              port: 9000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           securityContext:
