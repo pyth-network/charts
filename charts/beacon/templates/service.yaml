@@ -17,7 +17,7 @@ spec:
       name: metrics
     - port: {{ .Values.service.wormholeListenPort }}
       targetPort: wormhole-listen
-      protocol: udp
+      protocol: UDP
       name: wormhole-listen
   selector:
     {{- include "beacon.selectorLabels" . | nindent 4 }}
