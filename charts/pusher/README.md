@@ -2,6 +2,8 @@
 this helm chart deploys the full stack components required to push cryptocurrency prices to the Pyth network. The chart supports setting up multiple chains with customized price configurations for each individual chain.
 
 # Usage
+
+TODO: update with pyth's usage instructions
 ```
 helm repo add https://charts.keom.io
 helm upgrade --install pyth-pusher keom/pyth-pusher --namespace pyth --create-namespace --values values.yml
