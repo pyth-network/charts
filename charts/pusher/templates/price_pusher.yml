@@ -1,0 +1,71 @@
+{{- range $key, $pusher := .Values.pushers }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: price-pusher-config-{{ $pusher.id }}
+data:
+  mnemonic.txt: {{- $pusher.mnemonic  | toYaml | indent 2  }}
+  price_config.yaml: {{- $pusher.price_config | toYaml | indent 2 }}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-pusher-{{ $pusher.id }}
+  labels:
+    app: price-pusher-{{ $pusher.id }}
+spec:
+  selector:
+    matchLabels:
+      app: price-pusher-{{ $pusher.id }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: price-pusher-{{ $pusher.id }}
+    spec:
+      containers:
+        - name: pusher
+          image: public.ecr.aws/pyth-network/xc-price-pusher:v4.0.0
+          command:
+            - "npm"
+            - "run"
+            - "start"
+            - "--"
+            - "evm"
+            - "--endpoint"
+            - "{{ $pusher.rpc }}"
+            - "--mnemonic-file"
+            - "/env/mnemonic.txt"
+            - "--pyth-contract-address"
+            - "{{ $pusher.pyth_address }}"
+            - "--price-service-endpoint"
+            - "http://price-service:4200"
+            - "--price-config-file"
+            - "/env/price_config.yaml"
+            # - '--custom-gas-station'
+            # - '1101'
+            - "--override-gas-price-multiplier"
+            - "4"
+            - "--tx-speed"
+            - "standard"
+            - "--pushing-frequency"
+            - "60"
+            - "--polling-frequency"
+            - "30"
+
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "512m"
+          volumeMounts:
+            - name: price-pusher-config-{{ $pusher.id }}
+              mountPath: /env/
+      volumes:
+        - name: price-pusher-config-{{ $pusher.id }}
+          configMap:
+            name: price-pusher-config-{{ $pusher.id }}
+      restartPolicy: Always
+---
+{{- end }}

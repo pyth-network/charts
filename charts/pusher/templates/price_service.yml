@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: price-service
+  template:
+    metadata:
+      labels:
+        app: price-service
+    spec:
+      containers:
+      - name: price-service
+        image: public.ecr.aws/pyth-network/xc-server:v3.0.3
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "512m"
+        ports:
+        - containerPort: 4200
+        - containerPort: 8081
+        env:
+        - name: REST_PORT
+          value: "4200"
+        - name: PROM_PORT
+          value: "8081"
+        - name: READINESS_SPY_SYNC_TIME_SECONDS
+          value: "20"
+        - name: READINESS_NUM_LOADED_SYMBOLS
+          value: "50"
+        - name: LOG_LEVEL
+          value: "info"
+        - name: SPY_SERVICE_HOST
+          value: spy-service:7072
+        - name: SPY_SERVICE_FILTERS
+          value: |
+            [
+              {
+                "chain_id": 1,
+                "emitter_address": "6bb14509a612f01fbbc4cffeebd4bbfb492a86df717ebe92eb6df432a3f00a25"
+              },
+              {
+                "chain_id": 26,
+                "emitter_address": "f8cd23c2ab91237730770bbea08d61005cdda0984348f3f6eecb559638c0bba0"
+              }
+            ]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: price-service
+  annotations:
+    prometheus.io/scrape: "true"
+spec:
+  selector:
+    app: price-service
+  ports:
+  - port: 4200
+    targetPort: 4200
+
