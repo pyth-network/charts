@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spy
+spec:
+  selector:
+    matchLabels:
+      app: spy
+  template:
+    metadata:
+      labels:
+        app: spy
+    spec:
+      containers:
+      - name: spy
+        image: ghcr.io/wormhole-foundation/guardiand:main
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "512m"
+        ports:
+        - containerPort: 7072
+        args:
+        - 'spy'
+        - '--nodeKey'
+        - '/node.key'
+        - '--spyRPC'
+        - ':7072'
+        - '--bootstrap'
+        - '/dns4/wormhole-mainnet-v2-bootstrap.certus.one/udp/8999/quic/p2p/12D3KooWQp644DK27fd3d4Km3jr7gHiuJJ5ZGmy8hH4py7fP4FP7'
+        - '--network'
+        - '/wormhole/mainnet/2'
+        - '--logLevel'
+        - 'info'
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spy-service
+  annotations:
+    prometheus.io/scrape: "true"
+spec:
+  selector:
+    app: spy
+  ports:
+  - port: 7072
+    targetPort: 7072

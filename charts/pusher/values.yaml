@@ -1,0 +1,67 @@
+# you can setup multiple pushers for different chains
+# Each pusher runs on it's own Deployment/Pod
+pushers:
+  - id: manta-pacific
+    name: Manta Pusher
+    rpc: https://pacific-rpc.manta.network/http	
+    pyth_address: 0xA2aa501b19aff244D90cc15a4Cf739D2725B5729
+    push_frequency: 60 #seconds
+    poll_frequency: 30 #seconds
+    gas_price_multiplier: 4 #4x
+    mnemonic: |-
+      INSERT THE WALLET MNEMONIC
+    price_config: |-
+      - alias: ETH/USD
+        id: ff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace
+        time_difference: 3600
+        price_deviation: 0.5
+        confidence_ratio: 1
+      - alias: USDC/USD
+        id: eaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a
+        time_difference: 8600
+        price_deviation: 0.5
+        confidence_ratio: 1
+      - alias: USDT/USD
+        id: 2b89b9dc8fdf9f34709a5b106b472f0f39bb6ca9ce04b0fd7f2e971688e2e53b
+        time_difference: 8600
+        price_deviation: 0.5
+        confidence_ratio: 1
+
+
+  - id: polygonzkevm
+    name: POS Pusher
+    rpc: https://zkevm-rpc.com
+    pyth_address: 0xC5E56d6b40F3e3B5fbfa266bCd35C37426537c65
+    push_frequency: 60 #seconds
+    poll_frequency: 30 #seconds
+    gas_price_multiplier: 4 #4x
+    # mnemonic for the wallet that will push price updates
+    mnemonic: |-
+      INSERT WALLET MNEMONIC
+    price_config: |-
+      - alias: WETH/USD
+        id: ff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace
+        time_difference: 3600
+        price_deviation: 0.5
+        confidence_ratio: 1
+      - alias: USDC/USD
+        id: eaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a
+        time_difference: 3600
+        price_deviation: 0.5
+        confidence_ratio: 1
+      - alias: USDT/USD
+        id: 2b89b9dc8fdf9f34709a5b106b472f0f39bb6ca9ce04b0fd7f2e971688e2e53b
+        time_difference: 3600
+        price_deviation: 0.5
+        confidence_ratio: 1
+      - alias: MATIC/USD
+        id: 5de33a9112c2b700b8d30b8a3402c103578ccfa2765696471cc672bd5cf6ac52
+        time_difference: 3600
+        price_deviation: 0.5
+        confidence_ratio: 1
+      - alias: BTC/USD
+        id: '0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43'
+        time_difference: 3600
+        price_deviation: 0.5
+        confidence_ratio: 1
+
