@@ -23,7 +23,7 @@ beacon:
   wormholeBootstrapAddrs: /dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC,/dns4/wormhole.mcf.rocks/udp/8999/quic/p2p/12D3KooWDZVv7BhZ8yFLkarNdaSWaB43D6UbQwExJ8nnGAEmfHcU,/dns4/wormhole-v2-mainnet-bootstrap.staking.fund/udp/8999/quic/p2p/12D3KooWG8obDX9DNi1KUwZNu9xkGwfKqTp2GFwuuHpWZ3nQruS1
 
   # The values below are the values for spying Wormhole testnet network
-  # wormholeBootstrapAddrs: /dns4/t-guardian-01.nodes.stable.io/udp/8999/quic/p2p/12D3KooWCW3LGUtkCVkHZmVSZHzL3C4WRKWfqAiJPz1NR7dT9Bxh,/dns4/t-guardian-02.nodes.stable.io/udp/8999/quic/p2p/12D3KooWJXA6goBCiWM8ucjzc4jVUBSqL9Rri6UpjHbkMPErz5zK
+  # wormholeBootstrapAddrs: /dns4/t-guardian-01.nodes.stable.io/udp/8999/quic/p2p/12D3KooWCW3LGUtkCVkHZmVSZHzL3C4WRKWfqAiJPz1NR7dT9Bxh,/dns4/t-guardian-02.nodes.stable.io/udp/8999/quic/p2p/12D3KooWJXA6goBCiWM8ucjzc4jVUBSqL9Rri6UpjHbkMPErz5zK,/dns4/p2p-guardian-testnet-1.solana.p2p.org/udp/8999/quic/p2p/12D3KooWE4dmZwxhfjCKHLUqSaww96Cf7kmq1ZuKmzPz3MrJgZxp
   # wormholeNetworkId: /wormhole/testnet/2/1
 
 # Default values for beacon production config
@@ -55,6 +55,12 @@ securityContext:
       - ALL
   readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
+
+probes:
+  liveness:
+    enabled: true
+  startup:
+    enabled: true
 
 service:
   type: ClusterIP
