@@ -8,6 +8,12 @@ hermes:
   # -- Pythnet Websocket RPC address. Must be set. Example: ws://1.2.3.4:8900
   pythnetWsAddr:
 
+  # -- Pythnet Pyth Oracle Mapping address.
+  pythnetMappingAddr: AHtgzX45WTKfkPG53L6WYhGEXwQkN1BVknET3sVsLL8J
+
+  # The value below is the value for Hermes Beta channel using Pythtest crosschain network
+  # pythnetMappingAddr: BmA9Z6FjioHJPpjT39QazZyhDRUdZy2ezwx4GiDdE2u2
+
   benchmarks:
     # -- Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that.
     enabled: true
@@ -26,7 +32,7 @@ hermes:
   # -- Wormhole contract address
   wormholeContractAddr: H3fxXJ86ADW2PNuDDmZJg6mzTtPxkYCpNuQUTgmJ7AjU
 
-  # The values below are the values for Hermes Beta channel using Wormhole testnet network
+  # The value below is the value for Hermes Beta channel using Wormhole testnet network
   # wormholeContractAddr: EUrRARh92Cdc54xrDn6qzaqjA77NRrCcfbr8kPwoTL4z
 
 # Default values for hermes production config
@@ -57,6 +63,12 @@ securityContext:
       - ALL
   readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
 
 service:
   type: ClusterIP

@@ -64,12 +64,15 @@ spec:
             - containerPort: 8999
               protocol: UDP
               name: wormhole-listen
+          {{- with .Values.probes.liveness.enabled }}
           livenessProbe:
             httpGet:
               path: /
               port: 9000
             initialDelaySeconds: 5
             periodSeconds: 3
+          {{- end }}
+          {{- with .Values.probes.startup.enabled }}
           startupProbe:
             httpGet:
               path: /
@@ -77,6 +80,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
             failureThreshold: 3
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           securityContext:
