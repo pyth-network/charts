@@ -3,6 +3,13 @@
 hermes:
   # -- Hermes log level. Valid values are: trace, debug, info, warn, error
   logLevel: warn
+
+  # -- Aggregate readiness staleness threshold
+  aggregateReadinessStalenessThreshold: 30s
+
+  # -- Aggregate readiness max allowed slot lag
+  aggregateReadinessMaxAllowedSlotLag: 10
+
   # -- Pythnet Http RPC address. Must be set. Example: http://1.2.3.4:8899
   pythnetHttpAddr:
   # -- Pythnet Websocket RPC address. Must be set. Example: ws://1.2.3.4:8900

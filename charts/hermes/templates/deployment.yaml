@@ -31,6 +31,10 @@ spec:
           command:
             - hermes
             - run
+            - --aggregate-readiness-staleness-threshold
+            - {{ .Values.hermes.aggregateReadinessStalenessThreshold }}
+            - --aggregate-readiness-max-allowed-slot-lag
+            - "{{ .Values.hermes.aggregateReadinessMaxAllowedSlotLag }}"
             - --pythnet-http-addr
             - {{ required "hermes.pythnetHttpAddr is required" .Values.hermes.pythnetHttpAddr }}
             - --pythnet-ws-addr
