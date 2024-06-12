@@ -1,6 +1,6 @@
 # hermes
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.7](https://img.shields.io/badge/AppVersion-v0.5.7-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.14](https://img.shields.io/badge/AppVersion-v0.5.14-informational?style=flat-square)
 
 Pyth cross-chain server
 
@@ -10,6 +10,8 @@ Pyth cross-chain server
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
+| hermes.aggregateReadinessMaxAllowedSlotLag | int | `10` | Aggregate readiness max allowed slot lag |
+| hermes.aggregateReadinessStalenessThreshold | string | `"30s"` | Aggregate readiness staleness threshold |
 | hermes.benchmarks.enabled | bool | `true` | Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that. |
 | hermes.benchmarks.endpoint | string | `"https://benchmarks.pyth.network"` | Benchmarks endpoint. |
 | hermes.logLevel | string | `"warn"` | Hermes log level. Valid values are: trace, debug, info, warn, error |
