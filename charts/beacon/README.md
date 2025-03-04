@@ -1,6 +1,6 @@
 # beacon
 
-![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.1.3](https://img.shields.io/badge/AppVersion-v1.1.3-informational?style=flat-square)
+![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0](https://img.shields.io/badge/AppVersion-v1.3.0-informational?style=flat-square)
 
 Highly available Wormhole RPC
 
@@ -13,8 +13,10 @@ Highly available Wormhole RPC
 | beacon.logLevel | string | `"warn"` | Beacon log level. Valid values are: trace, debug, info, warn, error |
 | beacon.natsStream | string | `nil` | NATS stream name. Must be set. Example: mainnet-vaas |
 | beacon.natsUrl | string | `nil` | NATS server URL. Must be set. Example: 1.2.3.4:4222 |
-| beacon.wormholeBootstrapAddrs | string | `"/dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC,/dns4/wormhole.mcf.rocks/udp/8999/quic/p2p/12D3KooWDZVv7BhZ8yFLkarNdaSWaB43D6UbQwExJ8nnGAEmfHcU,/dns4/wormhole-v2-mainnet-bootstrap.staking.fund/udp/8999/quic/p2p/12D3KooWG8obDX9DNi1KUwZNu9xkGwfKqTp2GFwuuHpWZ3nQruS1"` | Wormhole bootstrap addresses |
-| beacon.wormholeNetworkId | string | `"/wormhole/mainnet/2"` | Wormhole network id |
+| beacon.nodeKeyPath | string | `nil` | Node key path. Once set the beacon will use the node key for libp2p communication and creates the key if it doesn't exist. |
+| beacon.wormholeBootstrapAddrs | string | `nil` | Wormhole bootstrap addresses |
+| beacon.wormholeEnv | string | `"mainnet"` | Wormhole network id. Either mainnet or testnet. Either this or wormholeNetworkId and wormholeBootstrapAddrs must be set. |
+| beacon.wormholeNetworkId | string | `nil` | Wormhole network id |
 | beacon.writerBatchSize | int | `1000` | Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

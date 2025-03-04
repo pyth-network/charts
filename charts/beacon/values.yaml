@@ -16,15 +16,17 @@ beacon:
   # -- Batch size for the writer. When the batch size is reached, the writer will flush the batch to the NATS stream.
   writerBatchSize: 1000
 
+  # -- Wormhole network id. Either mainnet or testnet. Either this or wormholeNetworkId and wormholeBootstrapAddrs must be set.
+  wormholeEnv: mainnet
+
   # -- Wormhole network id
-  wormholeNetworkId: /wormhole/mainnet/2
+  wormholeNetworkId:
 
   # -- Wormhole bootstrap addresses
-  wormholeBootstrapAddrs: /dns4/wormhole-v2-mainnet-bootstrap.xlabs.xyz/udp/8999/quic/p2p/12D3KooWNQ9tVrcb64tw6bNs2CaNrUGPM7yRrKvBBheQ5yCyPHKC,/dns4/wormhole.mcf.rocks/udp/8999/quic/p2p/12D3KooWDZVv7BhZ8yFLkarNdaSWaB43D6UbQwExJ8nnGAEmfHcU,/dns4/wormhole-v2-mainnet-bootstrap.staking.fund/udp/8999/quic/p2p/12D3KooWG8obDX9DNi1KUwZNu9xkGwfKqTp2GFwuuHpWZ3nQruS1
+  wormholeBootstrapAddrs:
 
-  # The values below are the values for spying Wormhole testnet network
-  # wormholeBootstrapAddrs: /dns4/t-guardian-01.testnet.xlabs.xyz/udp/8999/quic/p2p/12D3KooWCW3LGUtkCVkHZmVSZHzL3C4WRKWfqAiJPz1NR7dT9Bxh,/dns4/t-guardian-02.testnet.xlabs.xyz/udp/8999/quic/p2p/12D3KooWJXA6goBCiWM8ucjzc4jVUBSqL9Rri6UpjHbkMPErz5zK,/dns4/p2p-guardian-testnet-1.solana.p2p.org/udp/8999/quic/p2p/12D3KooWE4dmZwxhfjCKHLUqSaww96Cf7kmq1ZuKmzPz3MrJgZxp
-  # wormholeNetworkId: /wormhole/testnet/2/1
+  # -- Node key path. Once set the beacon will use the node key for libp2p communication and creates the key if it doesn't exist.
+  nodeKeyPath:
 
 # Default values for beacon production config
 

@@ -41,16 +41,28 @@ spec:
               value: "{{ .Values.beacon.heartbeatInterval }}"
             - name: LOG_LEVEL
               value: {{ .Values.beacon.logLevel }}
+            {{- if .Values.beacon.wormholeEnv }}
+            - name: WORMHOLE_ENV
+              value: {{ .Values.beacon.wormholeEnv }}
+            {{- end }}
+            {{- if .Values.beacon.wormholeNetworkId }}
             - name: WORMHOLE_NETWORK_ID
               value: {{ .Values.beacon.wormholeNetworkId }}
+            {{- end }}
+            {{- if .Values.beacon.wormholeBootstrapAddrs }}
             - name: WORMHOLE_BOOTSTRAP
               value: {{ .Values.beacon.wormholeBootstrapAddrs }}
+            {{- end }}
             - name: NATS_URL
               value: {{ required "beacon.natsUrl is required" .Values.beacon.natsUrl }}
             - name: NATS_STREAM
               value: {{ required "beacon.natsStream is required" .Values.beacon.natsStream }}
             - name: WRITER_BATCH_SIZE
               value: "{{ .Values.beacon.writerBatchSize }}"
+            {{- if .Values.beacon.nodeKeyPath }}
+            - name: NODE_KEY_PATH
+              value: {{ .Values.beacon.nodeKeyPath }}
+            {{- end }}
           ports:
             - containerPort: 8080
               protocol: TCP
