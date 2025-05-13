@@ -4,3 +4,4 @@ description: Pyth cross-chain server
 type: application
 version: 2.0.0
 appVersion: v0.9.0
+deprecated: true
