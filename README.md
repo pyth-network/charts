@@ -1,6 +1,9 @@
 # charts
 
-Pyth Helm charts
+> **Deprecation Notice**
+>
+> This Helm charts repository is **deprecated** and no longer maintained.
+> Please refer to the project's repositories for updated installation instructions.
 
 ## pre-commit hooks
 pre-commit is a tool that checks and fixes simple issues (formatting, ...) before each commit.
