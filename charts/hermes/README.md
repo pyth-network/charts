@@ -1,6 +1,6 @@
 # hermes
 
-![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.14](https://img.shields.io/badge/AppVersion-v0.5.14-informational?style=flat-square)
+![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.0](https://img.shields.io/badge/AppVersion-v0.9.0-informational?style=flat-square)
 
 Pyth cross-chain server
 
@@ -16,7 +16,7 @@ Pyth cross-chain server
 | hermes.benchmarks.endpoint | string | `"https://benchmarks.pyth.network"` | Benchmarks endpoint. |
 | hermes.logLevel | string | `"warn"` | Hermes log level. Valid values are: trace, debug, info, warn, error |
 | hermes.pythnetHttpAddr | string | `nil` | Pythnet Http RPC address. Must be set. Example: http://1.2.3.4:8899 |
-| hermes.pythnetMappingAddr | string | `"AHtgzX45WTKfkPG53L6WYhGEXwQkN1BVknET3sVsLL8J"` | Pythnet Pyth Oracle Mapping address. |
+| hermes.pythnetOracleProgramAddr | string | `"FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH"` | Pythnet Pyth Oracle Program address. |
 | hermes.pythnetWsAddr | string | `nil` | Pythnet Websocket RPC address. Must be set. Example: ws://1.2.3.4:8900 |
 | hermes.rpcRequesterIpHeaderName | string | `"X-Forwarded-For"` | Header name to fetch the requester ip address from. |
 | hermes.rpcWsWhitelist | string | `nil` | Whitelisted ip network addresses (in CIDR notation) against websocket ratelimit (separated by comma). Example: 1.2.0.0/24,3.0.0.0/8 |

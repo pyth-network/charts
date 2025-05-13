@@ -15,11 +15,11 @@ hermes:
   # -- Pythnet Websocket RPC address. Must be set. Example: ws://1.2.3.4:8900
   pythnetWsAddr:
 
-  # -- Pythnet Pyth Oracle Mapping address.
-  pythnetMappingAddr: AHtgzX45WTKfkPG53L6WYhGEXwQkN1BVknET3sVsLL8J
+  # -- Pythnet Pyth Oracle Program address.
+  pythnetOracleProgramAddr: FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH
 
   # The value below is the value for Hermes Beta channel using Pythtest crosschain network
-  # pythnetMappingAddr: BmA9Z6FjioHJPpjT39QazZyhDRUdZy2ezwx4GiDdE2u2
+  # pythnetOracleProgramAddr: gSbePebfvPy7tRqimPoVecS2UsBvYv46ynrzWocc92s
 
   benchmarks:
     # -- Enable benchmarks. Benchmarks endpoint does not support Hermes Beta yet and you need to disable it for that.

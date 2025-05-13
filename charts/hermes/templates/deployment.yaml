@@ -39,8 +39,8 @@ spec:
             - {{ required "hermes.pythnetHttpAddr is required" .Values.hermes.pythnetHttpAddr }}
             - --pythnet-ws-addr
             - {{ required "hermes.pythnetWsAddr is required" .Values.hermes.pythnetWsAddr }}
-            - --pythnet-mapping-addr
-            - {{ .Values.hermes.pythnetMappingAddr }}
+            - --pythnet-oracle-program-addr
+            - {{ .Values.hermes.pythnetOracleProgramAddr }}
             - --rpc-listen-addr
             - 0.0.0.0:8080
             {{- if .Values.hermes.rpcWsWhitelist }}
