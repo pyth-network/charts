@@ -3,6 +3,17 @@ entries:
   beacon:
   - apiVersion: v2
     appVersion: v1.1.3
+    created: "2025-05-13T17:03:26.480325317Z"
+    deprecated: true
+    description: Highly available Wormhole RPC
+    digest: 911c2ea4de392ce76b955b3d1298cd4c2141a2152a40bbfbb1e1cb5604c2af64
+    name: beacon
+    type: application
+    urls:
+    - https://github.com/pyth-network/charts/releases/download/beacon-1.1.1/beacon-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
+    appVersion: v1.1.3
     created: "2024-04-23T12:29:46.922340633Z"
     description: Highly available Wormhole RPC
     digest: d03b38777329112962ab0253d85a56e4b988188828e40bf80c6bf618780d35bf
@@ -102,6 +113,17 @@ entries:
     - https://github.com/pyth-network/charts/releases/download/beacon-0.1.0/beacon-0.1.0.tgz
     version: 0.1.0
   hermes:
+  - apiVersion: v2
+    appVersion: v0.9.0
+    created: "2025-05-13T17:03:26.633697814Z"
+    deprecated: true
+    description: Pyth cross-chain server
+    digest: 96a710c7359954028f9d2d885fd1a15694268b8f14ece173159d45d57fbb02d1
+    name: hermes
+    type: application
+    urls:
+    - https://github.com/pyth-network/charts/releases/download/hermes-2.0.0/hermes-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     appVersion: v0.5.14
     created: "2024-06-12T13:02:33.945511857Z"
@@ -263,4 +285,4 @@ entries:
     urls:
     - https://github.com/pyth-network/charts/releases/download/pythnet-rpc-0.1.0/pythnet-rpc-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-12T13:02:33.945653111Z"
+generated: "2025-05-13T17:03:26.633852322Z"
